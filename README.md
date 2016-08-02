@@ -27,3 +27,8 @@ To recompute from the scratch, add -F :
     snakemake -F --config bin_size=100000 first=pgVenter second=pgWatson
 
 ## Results 
+
+ ![ideogram](https://github.com/dridk/snp_location/raw/master/results/ideogram.png  "Ideogram")
+ ![correlation](https://github.com/dridk/snp_location/raw/master/results/correlation.png "Correlation")
+
+
