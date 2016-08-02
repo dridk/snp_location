@@ -8,9 +8,10 @@ configfile: "config.json"
 rule all: 
 	input:
 		"correlation.png",
-		"ideogram.png"
+		"ideogram.png",
+		"both.png"
 
-rule get_hg19_size:
+rule download_hg19_size:
 	input:
 		hg19_size = HTTP.remote("hgdownload.soe.ucsc.edu/goldenPath/hg19/bigZips/hg19.chrom.sizes", keep_local=True, insecure=True)
 	output:
@@ -31,7 +32,7 @@ rule create_binning:
 
 
 
-rule download_genom_size:
+rule download_genom:
 	input:
 		HTTP.remote("hgdownload.cse.ucsc.edu/goldenpath/hg19/database/{name}.txt.gz", keep_local=True, insecure=True),
 	output :
@@ -42,7 +43,7 @@ rule download_genom_size:
 
 
 
-rule coverage:
+rule count_per_bins:
 	input:
 		genom  = "{name}.bed.gz" ,
 		window ="windows.bed"
@@ -72,6 +73,18 @@ rule plot_chromosome :
 
 	output: 
 		"ideogram.png"
+
+	shell:
+		"Rscript  --vanilla plot_chrom_diff.r {input[0]} {input[1]} > /dev/null 2>&1"
+
+rule plot_both: 
+	input :
+		config["first"] + ".coverage",
+		config["second"] + ".coverage",
+
+
+	output: 
+		"both.png"
 
 	shell:
 		"Rscript  --vanilla plot_chrom.r {input[0]} {input[1]} > /dev/null 2>&1"
