@@ -27,7 +27,7 @@ To recompute from the scratch, add -F :
 
 ## Results 
 
- ![ideogram](https://github.com/dridk/snp_location/results/ideogram.png "Ideogram")
- ![correlation](https://github.com/dridk/snp_location/results/correlation.png "Correlation")
+ ![ideogram](https://github.com/dridk/snp_location/raw/master/results/ideogram.png  "Ideogram")
+ ![correlation](https://github.com/dridk/snp_location/raw/master/results/correlation.png "Correlation")
 
 
