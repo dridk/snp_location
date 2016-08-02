@@ -62,7 +62,7 @@ rule plot_correlation :
 		"correlation.png"
 
 	shell:
-		"Rscript  --vanilla plot.r {input[0]} {input[1]} > /dev/null"
+		"Rscript  --vanilla plot.r {input[0]} {input[1]} > /dev/null 2>&1"
 
 rule plot_chromosome : 
 	input :
@@ -74,5 +74,5 @@ rule plot_chromosome :
 		"ideogram.png"
 
 	shell:
-		"Rscript  --vanilla plot_chrom.r {input[0]} {input[1]} > /dev/null"
+		"Rscript  --vanilla plot_chrom.r {input[0]} {input[1]} > /dev/null 2>&1"
 

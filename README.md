@@ -4,6 +4,7 @@ It computes the correlation plot and an ideogram.
 
 ## Requirement 
 * Snakemake
+* bedtools
 * R : biocLite
 * R : IdeoViz
 

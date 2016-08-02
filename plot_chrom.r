@@ -16,7 +16,7 @@ ideo <- getIdeo("hg19")
 data = GRanges(A$V1, IRanges(start = A$V2, end = A$V3) )
 mcols(data)$value = scale(B$V4- A$V4)
 
-png("ideogram.png", width = 2000, height = 800)
+png("ideogram.png", width = 4000, height = 1200,  units = "px")
 par(mar = c(0, 0, 0, 0), mfrow = c(1,1))
 plotOnIdeo(chrom = seqlevels(data),
            ideoTable = ideo,
@@ -27,7 +27,7 @@ plotOnIdeo(chrom = seqlevels(data),
            val_range=c(-5,5),
            plotType='rect',
            plot_title = paste("Differrence between", gsub(".coverage","",fileA), gsub(".coverage","",fileB)),
-           cex.axis = 0.5,
+           cex.axis = 0.8,
            chromName_cex = 0.6,
            vertical = T
         )
