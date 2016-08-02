@@ -10,6 +10,9 @@ fileB = args[2]
 
 A = read.table(fileA, as.is = T, sep="\t", header=F)
 B = read.table(fileB, as.is = T, sep="\t", header=F)
+
+windows_size = A$V3[1] - A$V2[1]
+
 ideo <- getIdeo("hg19")
 
 
@@ -26,7 +29,7 @@ plotOnIdeo(chrom = seqlevels(data),
            addScale = F,
            val_range=c(-5,5),
            plotType='rect',
-           plot_title = paste("Differrence between", gsub(".coverage","",fileA), gsub(".coverage","",fileB)),
+           plot_title = paste("Differrence between", gsub(".coverage","",fileA), gsub(".coverage","",fileB), "bin",windows_size),
            cex.axis = 0.8,
            chromName_cex = 0.6,
            vertical = T
