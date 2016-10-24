@@ -1,6 +1,5 @@
 # snp_location
-Compare snp location between two personal human genom. This pipeline create binning of [bin_size]pb across the whole genom. For each bin, it counts how many snp stay there for [first] and [second] human genom.   
-It computes the correlation plot and an ideogram.  
+Compare snp location between two human genom. This pipeline create bins across the whole genom and count how many SNP they are.
 
 ## Requirement 
 * Snakemake
@@ -8,21 +7,18 @@ It computes the correlation plot and an ideogram.
 * R : biocLite
 * R : IdeoViz
 
-## Configuration 
-Edit first config.json. first and second value are the name of personal genom comming from uscc. Check http://hgdownload.cse.ucsc.edu/goldenPath/hg19/database/. 
-
 ## Launch 
 
 Just type :
 
     snakemake 
 
-No data a required. It will download everything.   
-You can specify argument without editing config.json 
+Download data are not required. Snakemake will download all requirements.00   
+You can edit config file or pass value directly to the command line. First and second are the name of personal human genom comming from UCSC.
 
     snakemake --config bin_size=100000 first=pgVenter second=pgWatson
 
-To recompute from the scratch, add -F : 
+To compute from the scratch, add -F : 
 
     snakemake -F --config bin_size=100000 first=pgVenter second=pgWatson
 
