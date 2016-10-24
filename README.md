@@ -13,7 +13,7 @@ Just type :
 
     snakemake 
 
-Download data are not required. Snakemake will download all requirements.00   
+Downloaded data are not required. Snakemake will download all requirements.00   
 You can edit config file or pass value directly to the command line. First and second are the name of personal human genom comming from UCSC.
 
     snakemake --config bin_size=100000 first=pgVenter second=pgWatson
